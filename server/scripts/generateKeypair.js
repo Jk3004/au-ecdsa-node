@@ -9,14 +9,15 @@ const generateKeyPair = (n) => {
     for (let i = 0; i < n; i++) {
         const privateKey = secp256k1.utils.randomPrivateKey();
         const publicKey = secp256k1.getPublicKey(privateKey);
+        const address = toHex(publicKey.slice(1).slice(-20))
 
         console.log('Private Key:', toHex(privateKey));
         console.log('Public Key:', toHex(publicKey));
         console.log();
 
-        account[toHex(publicKey)] = toHex(privateKey);
+        account[toHex(publicKey)] = address;
         // Give everyone 50 tokens
-        balances[toHex(publicKey)] = 50;
+        balances[address] = 50;
     }
 
     storeAddressInFile('../accounts.json', account);
