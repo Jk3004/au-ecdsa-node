@@ -15,7 +15,7 @@ const balances = JSON.parse(fs.readFileSync('../balances.json', 'utf-8'));
 
 app.get("/balance/:address", (req, res) => {
     const { address } = req.params;
-    console.log(address);
+    // console.log(address);
     const balance = balances[address] || 0;
     res.send({ balance });
 });
