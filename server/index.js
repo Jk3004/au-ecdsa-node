@@ -1,3 +1,8 @@
+const { secp256k1 } = require('ethereum-cryptography/secp256k1');
+const { keccak } = require('ethereum-cryptography/keccak');
+const utils = require('ethereum-cryptography/utils');
+const fs = require('fs');
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -6,14 +11,11 @@ const port = 3042;
 app.use(cors());
 app.use(express.json());
 
-const balances = {
-    "0x1": 100,
-    "0x2": 50,
-    "0x3": 75,
-};
+const balances = JSON.parse(fs.readFileSync('../balances.json', 'utf-8'));
 
 app.get("/balance/:address", (req, res) => {
     const { address } = req.params;
+    console.log(address);
     const balance = balances[address] || 0;
     res.send({ balance });
 });

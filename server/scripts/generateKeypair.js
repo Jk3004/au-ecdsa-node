@@ -15,7 +15,7 @@ const generateKeyPair = (n) => {
         console.log('Public Key:', toHex(publicKey));
         console.log();
 
-        account[toHex(publicKey)] = address;
+        account[toHex(privateKey)] = address;
         // Give everyone 50 tokens
         balances[address] = 50;
     }
