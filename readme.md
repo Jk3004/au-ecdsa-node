@@ -1,6 +1,8 @@
 # Alchemy University
 
-As a part of Alchemy University
+Alchemy University Week 1 Project
+
+> Peace, Love and Web3
 
 ## ECDSA Node
 
@@ -23,6 +25,7 @@ The server folder contains a node.js server using [express](https://expressjs.co
 
 1. Open a terminal within the `/server` folder
 2. Run `npm install` to install all the dependencies
-3. Run `node index` to start the server
+3. Run `node scripts/generateKeypair.js` to create key pairs in `../accounts.json` and `../balances.json`, to be used for testing.
+4. Run `node index` to start the server
 
 The application should connect to the default server port (3042) automatically!
